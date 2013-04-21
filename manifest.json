@@ -1,0 +1,16 @@
+{
+  "name": "WebOpenWith",
+  "description": "Web Open With (WOW) provides you configurable contextual menu items on hyperlinks and selected text to pass the target item to another site",
+  "version": "0.1",
+  "permissions": ["contextMenus"],
+  "background": {
+    "scripts": ["javascript/wow.js"]
+  },
+  "manifest_version": 2,
+  "icons": {
+    "16": "resources/images/icon-16.png",
+    "48": "resources/images/icon-48.png",
+    "128": "resources/images/icon-128.png"
+  },
+  "options_page": "html/options.html"
+}

@@ -1,0 +1,38 @@
+<html>
+
+<head><title>Web Open With Options</title></head>
+
+<body>
+
+Enter WOW mappings in the text area below in JSON format like: <br />
+<pre>
+  [
+		{
+	 		"label": "Search on Google",
+			"targetUrlPatterns": ["*://*/*"],
+			"contexts": ["link", "selection"],
+			"wowTemplate": "https://www.google.com.ar/search?q=${SOURCE_TEXT}"
+		},
+		{
+	 		"label": "Expand short url (goo.gl)",
+			"targetUrlPatterns": ["http://goo.gl/*", "https://goo.gl/*"],
+			"contexts": ["link"],
+			"wowTemplate": "https://www.googleapis.com/urlshortener/v1/url?shortUrl=${SOURCE_TEXT}"
+		}
+  ]
+</pre><br />
+For info about the "targetUrlPatterns" parameter, take a look <a target="_blank" href="http://developer.chrome.com/extensions/match_patterns.html">here</a> <br />
+For info about the "contexts" parameter, take a look <a target="_blank" href="http://developer.chrome.com/extensions/contextMenus.html">here</a> <br />
+
+<textarea id="wowMappings" name="wowMappings" rows="15" cols="120">
+</textarea>
+
+<br>
+<div id="status"></div>
+<button id="save">Save</button>
+</body>
+
+<script src="../javascript/options.js"></script>
+
+</html>
+

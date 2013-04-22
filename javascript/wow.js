@@ -7,7 +7,7 @@ function onWOWOptionClick(info, tab) {
 	var wowMapping = wowMappingsObject[i];
 
 	if (wowMapping["label"] == wowSelectedMenuItemLabel) {
-        var finalUrl = wowMapping["wowTemplate"].replace("${SOURCE_TEXT}", info.selectionText == null ? info.linkUrl : info.selectionText);
+        var finalUrl = wowMapping["wowTemplate"].replace("${SOURCE_TEXT}", escape(info.selectionText == null ? info.linkUrl : info.selectionText));
 		window.open(finalUrl, '_blank');
 		return;
 	}

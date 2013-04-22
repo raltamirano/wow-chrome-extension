@@ -1,0 +1,24 @@
+Here is a collection of my own wow's:
+
+
+  [
+		{
+	 		"label": "Search on Google",
+			"targetUrlPatterns": ["*://*/*"],
+			"contexts": ["link", "selection"],
+			"wowTemplate": "https://www.google.com.ar/search?q=${SOURCE_TEXT}"
+		},
+		{
+	 		"label": "Expand short url (goo.gl)",
+			"targetUrlPatterns": ["http://goo.gl/*", "https://goo.gl/*"],
+			"contexts": ["link"],
+			"wowTemplate": "https://www.googleapis.com/urlshortener/v1/url?shortUrl=${SOURCE_TEXT}"
+		},
+		{
+	 		"label": "Translate English to Spanish",
+			"targetUrlPatterns": ["*://*/*"],
+			"contexts": ["selection"],
+			"wowTemplate": "http://translate.google.com.ar/#en/es/${SOURCE_TEXT}"
+		}
+  ]
+

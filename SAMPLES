@@ -19,6 +19,11 @@ Here is a collection of my own wow's:
 			"targetUrlPatterns": ["*://*/*"],
 			"contexts": ["selection"],
 			"wowTemplate": "http://translate.google.com.ar/#en/es/${SOURCE_TEXT}"
-		}
+		},
+        {
+	 		"label": "Search Wikipedia",
+			"targetUrlPatterns": ["*://*/*"],
+			"contexts": ["selection"],
+			"wowTemplate": "https://wikipedia.org/wiki/Special:Search/${SOURCE_TEXT}"
+		}        
   ]
-

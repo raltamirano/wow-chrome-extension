@@ -18,30 +18,27 @@ function onWOWOptionClick(info, tab) {
 
 var parentMenuId = chrome.contextMenus.create(
 	{
-		"title": "Web Open With...", 
+		"title": "Web Open With...",
 		"contexts": ["all"]
     });
 
-var wowMappingsSaved = localStorage["wowMappings"];
-if (!wowMappingsSaved) {
-	return;
+var savedWowMappings = localStorage["wowMappings"];
+if (savedWowMappings) {
+    wowMappingsObject = JSON.parse(savedWowMappings);
+    wowTitleMenuID = [];
+
+    for(var i=0;i<wowMappingsObject.length;i++) {
+    	var wowMapping = wowMappingsObject[i];
+
+    	var newMenuItemId = chrome.contextMenus.create(
+    	{
+    			"title": wowMapping["label"],
+    	 		"parentId": parentMenuId,
+    			"contexts": wowMapping["contexts"],
+    			"targetUrlPatterns": wowMapping["targetUrlPatterns"],
+    			"onclick": onWOWOptionClick
+    	});
+
+        wowTitleMenuID["mid-" + newMenuItemId] = wowMapping["label"];
+    }
 }
-
-wowMappingsObject = JSON.parse(wowMappingsSaved);
-wowTitleMenuID = [];
-
-for(var i=0;i<wowMappingsObject.length;i++) {
-	var wowMapping = wowMappingsObject[i];
-
-	var newMenuItemId = chrome.contextMenus.create(
-	{
-			"title": wowMapping["label"], 
-	 		"parentId": parentMenuId,
-			"contexts": wowMapping["contexts"],
-			"targetUrlPatterns": wowMapping["targetUrlPatterns"],
-			"onclick": onWOWOptionClick
-	});
-
-    wowTitleMenuID["mid-" + newMenuItemId] = wowMapping["label"];
-}
-
